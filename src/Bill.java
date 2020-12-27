@@ -1,12 +1,13 @@
 public class Bill {
-    private float newNumber;
-    private float oldNumber;
+    private int newNumber;
+    private int oldNumber;
     private Customer customer;
+    private final int ELECTRICITY_PRICE = 750;
 
     public Bill() {
     }
 
-    public Bill(float newNumber, float oldNumber, Customer customer) {
+    public Bill(int newNumber, int oldNumber, Customer customer) {
         this.newNumber = newNumber;
         this.oldNumber = oldNumber;
         this.customer = customer;
@@ -26,8 +27,7 @@ public class Bill {
 
 
     public void electricityBill() {
-        float ELECTRICITY_PRICE = 750;
-        var result = (getNewNumber() - getOldNumber()) * ELECTRICITY_PRICE;
-        System.out.println("Total Amount You Pay: " + result);
+        var result = (oldNumber - newNumber) * ELECTRICITY_PRICE;
+        System.out.println("Total Amount You Pay: " + result + "VND");
     }
 }

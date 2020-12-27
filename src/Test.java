@@ -10,8 +10,12 @@ public class Test {
             System.out.println("1: Add Bill");
             System.out.println("2: Display");
             System.out.println("3: Pay Bill Electricity");
-            choice = Integer.parseInt(input.nextLine());
+            System.out.println("0: Để Thoát");
+            choice = input.nextInt();
+            input.nextLine();
             switch (choice) {
+                case 0:
+                    System.exit(0);
                 case 1:
                     var addBill = ceartBill(input);
                     listBill.add(addBill);
@@ -34,8 +38,10 @@ public class Test {
                     }else {
                         System.out.println("Danh Sach Rong");
                     }
+                    break;
+
             }
-        } while (choice != 0);
+        } while (true);
     }
 
     private static void getBill(ArrayList<Bill> listBill, String meterNumber) {
@@ -64,9 +70,9 @@ public class Test {
         System.out.println("Enter meter Number");
         var mater = input.nextLine();
         System.out.println("Enter new Number");
-        var newNumber = Float.parseFloat(input.nextLine());
+        var newNumber = input.nextInt();
         System.out.println("Enter old Number");
-        var oldNumber = Float.parseFloat(input.nextLine());
+        var oldNumber =input.nextInt();
         Customer customer = new Customer(name, apartment, mater);
         return new Bill(newNumber, oldNumber, customer);
     }
